@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>User Cell Tower: Shenzhen</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="./index.css">
+
+  </head>
+
+  <body>
+    <div id='map'>
+      <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiMTJwYXJrbCIsImEiOiJjaXllemhvYmEwMHF3MzVrNTA5djg0NnJsIn0.5pHqYmljwlmbl9_w-KDGxg';
+
+      var map = new mapboxgl.Map({
+        container: 'map', // container element id
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [114.197, 22.648], // initial map center in [lon, lat]
+        zoom: 14
+      });
+      </script>
+    </div>
+    <div id='console'>
+      <h1>Cellphone Tower Traffic</h1>
+      <p>Cellphone tower traffic in the city of Shenzen.</p>
+    </div>
+
+
+  </body>
+
+
+</html>
