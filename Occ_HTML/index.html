@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>User Cell Tower: Shenzhen</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="./index.css">
+
+</head>
+
+<body>
+  <div id='map'>
+    <script src="index.js"></script>
+  </div>
+  <div id='console'>
+    <h1>Cellphone Tower Traffic</h1>
+    <p>Cellphone tower traffic in the city of Shenzen.</p>
+
+    <div class='session'>
+      <h2>Number of Occurences</h2>
+      <div class='row colors'></div>
+      <div class='row labels'>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+      </div>
+    </div>
+
+    <div class='session' id='sliderbar'>
+      <h2>Time Interval (in 15 minutes): <label id='active-hour'>12PM</label></h2>
+      <input id='slider' class='row' type='range' min='0' max='48' step='.25' value='24' />
+    </div>
+
+  </div>
+
+</body>
+</html>
