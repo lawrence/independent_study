@@ -22,22 +22,22 @@ var colorList = [
 
 map.on('load', function () {
   map.addLayer({
-    'id': 'Occ_Shenzhen',
+    'id': 'Occ30_Shenzhen_10202013',
     'type': 'circle',
     'source': {
       type: 'vector',
-      url: 'mapbox://12parkl.0gz7kxx2'
+      url: 'mapbox://12parkl.2zi3ttrl'
     },
-    'source-layer': 'occ-5jtbpq',
+    'source-layer': 'Shenzhen_occ30_10202013-2bf61a',
     'paint': {
       'circle-color': {
-        property: 'occurence',
+        property: 'occ_count',
         type: 'interval',
         stops: colorList
       },
 
       "circle-radius": {
-        "property": 'occurence',
+        "property": 'occ_count',
         "stops": [
           [0, 3],
           [5, 15],
@@ -49,6 +49,10 @@ map.on('load', function () {
     }
   });
 
+  // Starting filter for the graph:
+  map.setFilter('Occ30_Shenzhen_10202013', ['==', 'time', "12:00"]);
+
+  // Filter for every 30 minutes:
   document.getElementById('slider').addEventListener('input', function(e) {
     var val = parseFloat(e.target.value);
     if (val % 1 != 0){
@@ -69,36 +73,30 @@ map.on('load', function () {
         half_hour = val+":00";
       }
     }
-    map.setFilter('Occ_Shenzhen', ['==', 'time', half_hour]);
+    map.setFilter('Occ30_Shenzhen_10202013', ['==', 'time', half_hour]);
     document.getElementById('active-hour').innerText = half_hour;
   });
 
   map.on('click', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ_Shenzhen'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ30_Shenzhen_10202013'] });
 
-    // if the features have no info, return nothing
     if (!features.length) {
       return;
     }
 
     var feature = features[0];
-
-    // Populate the popup and set its coordinates
-    // based on the feature found
     var popup = new mapboxgl.Popup()
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<div id="popup" class="popup" style="z-index: 10;"> <h5> Detail: </h5>' +
+    .setHTML('<div id="popup" class="popup" style="z-index: 10;"> <h1> Detail: </h1>' +
     '<ul class="list-group">' +
     '<li class="list-group-item"> Date: ' + feature.properties['date'] + " </li>" +
     '<li class="list-group-item"> Time: ' + feature.properties['time'] + " </li>" +
-    '<li class="list-group-item"> Occurence Count: ' + feature.properties['occurence'] + " </li>" + '</ul> </div>')
+    '<li class="list-group-item"> Occurrence Count: ' + feature.properties['occ_count'] + " </li>" + '</ul> </div>')
     .addTo(map);
   });
 
-  // Use the same approach as above to indicate that the symbols are clickable
-  // by changing the cursor style to 'pointer'
   map.on('mousemove', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ_Shenzhen'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ30_Shenzhen_10202013'] });
     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
   });
 
