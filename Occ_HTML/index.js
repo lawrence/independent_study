@@ -24,12 +24,11 @@ map.on('load', function () {
   map.addLayer({
     'id': 'pedestrian_volume',
     'type': 'circle',
-    //Load the vector tile source from our Mapbox Pedestrian traffic example
     'source': {
       type: 'vector',
-      url: 'mapbox://12parkl.1mrihg70' //Your Mapbox tileset Map ID
+      url: 'mapbox://12parkl.0gz7kxx2'
     },
-    'source-layer': 'UserTrip_1NF_occ-db511b', //name of tileset
+    'source-layer': 'occ-5jtbpq',
     'paint': {
       //Add data-driven styles for circle-color
       'circle-color': {
@@ -38,7 +37,6 @@ map.on('load', function () {
         stops: colorList
       },
 
-      //Add data-driven styles for circle radius
       "circle-radius": {
         "property": 'occ',
         "stops": [
@@ -50,25 +48,30 @@ map.on('load', function () {
       },
       'circle-opacity': 0.8
     }
-
-
   });
 
-filter: ['==', 'time', "13-10-20 21:00:00"]
-
-/*
   document.getElementById('slider').addEventListener('input', function(e) {
-    // get the current hour as an integer
-    var hour = parseInt(e.target.value);
-    // map.setFilter(layer-name, filter)
-    map.setFilter('collisions', ['==', 'time', hour]);
+    var val = parseFloat(e.target.value);
+    if (val % 1 != 0){
+      val = parseInt(val);
+      if (val < 10){
+        half_hour = "0"+val+":30";
+      }
+      else {
+        half_hour = val+":30";
+      }
+    }
 
-    // converting 0-23 hour to AMPM format
-    var ampm = hour >= 12 ? 'PM' : 'AM';
-    var hour12 = hour % 12 ? hour % 12 : 12;
-    // update text in the UI
-    document.getElementById('active-hour').innerText = hour12 + ampm;
+    else {
+      if (val < 10){
+        half_hour = "0"+val+":00";
+      }
+      else {
+        half_hour = val+":00";
+      }
+    }
+    map.setFilter('time', ['==', 'time', half_hour]);
+    document.getElementById('active-hour').innerText = half_hour;
   });
-*/
 
 });
