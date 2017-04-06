@@ -2,9 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiMTJwYXJrbCIsImEiOiJjaXllemhvYmEwMHF3MzVrNTA5d
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/dark-v9',
+  style: 'mapbox://styles/mapbox/outdoors-v9',
   center: [114.0579, 22.5431],
-  zoom: 11
+  zoom: 13
 });
 
 var colorList = [
@@ -22,7 +22,7 @@ var colorList = [
 
 map.on('load', function () {
   map.addLayer({
-    'id': 'pedestrian_volume',
+    'id': 'Occ_Shenzhen',
     'type': 'circle',
     'source': {
       type: 'vector',
@@ -30,15 +30,14 @@ map.on('load', function () {
     },
     'source-layer': 'occ-5jtbpq',
     'paint': {
-      //Add data-driven styles for circle-color
       'circle-color': {
-        property: 'occ',
+        property: 'occurence',
         type: 'interval',
         stops: colorList
       },
 
       "circle-radius": {
-        "property": 'occ',
+        "property": 'occurence',
         "stops": [
           [0, 3],
           [5, 15],
@@ -46,7 +45,7 @@ map.on('load', function () {
           [6000, 100],
         ]
       },
-      'circle-opacity': 0.8
+      'circle-opacity': 0.9
     }
   });
 
@@ -70,8 +69,39 @@ map.on('load', function () {
         half_hour = val+":00";
       }
     }
-    map.setFilter('time', ['==', 'time', half_hour]);
+    map.setFilter('Occ_Shenzhen', ['==', 'time', half_hour]);
     document.getElementById('active-hour').innerText = half_hour;
   });
+
+  map.on('click', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ_Shenzhen'] });
+
+    // if the features have no info, return nothing
+    if (!features.length) {
+      return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found
+    var popup = new mapboxgl.Popup()
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<div id="popup" class="popup" style="z-index: 10;"> <h5> Detail: </h5>' +
+    '<ul class="list-group">' +
+    '<li class="list-group-item"> Date: ' + feature.properties['date'] + " </li>" +
+    '<li class="list-group-item"> Time: ' + feature.properties['time'] + " </li>" +
+    '<li class="list-group-item"> Occurence Count: ' + feature.properties['occurence'] + " </li>" + '</ul> </div>')
+    .addTo(map);
+  });
+
+  // Use the same approach as above to indicate that the symbols are clickable
+  // by changing the cursor style to 'pointer'
+  map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ_Shenzhen'] });
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+  });
+
+
 
 });
