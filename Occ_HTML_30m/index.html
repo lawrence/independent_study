@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>[10.20.2013] Shenzhen Area Occurrence Count (30 mins)</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+
+<body>
+  <div id='map'>
+    <script src="index.js"></script>
+  </div>
+  <div id='console'>
+    <h1>Shenzhen Area Cellphone Tower Traffic for 10/20/13</h1>
+    <p>Cellphone traffic in the city of Shenzhen in intervals of 30 minutes.</p>
+
+    <div class='session'>
+      <h2>Number of Occurrences</h2>
+      <div class='row colors'></div>
+      <div class='row labels'>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+        <div class='label'></div>
+      </div>
+    </div>
+
+    <div class='session' id='sliderbar'>
+      <h2>Time Interval: <label id='active-hour'>12:00</label></h2>
+      <input id='slider' class='row' type='range' range="min" min='0' max='23.5' step="0.5" value='12'/>
+    </div>
+
+  </div>
+
+</body>
+</html>
