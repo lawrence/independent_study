@@ -75,8 +75,8 @@ map.on('load', function () {
     var val = parseFloat(e.target.value);
     var cHMS = seconds2HMS(val)
 
-    map.setFilter('Occ01_Shenzhen_10202013', ['==', 'time', half_hour]);
-    document.getElementById('active-hour').innerText = half_hour;
+    map.setFilter('Occ01_Shenzhen_10202013', ['==', 'time', cHMS]);
+    document.getElementById('active-time').innerText = cHMS;
   });
 
   map.on('click', function(e) {
