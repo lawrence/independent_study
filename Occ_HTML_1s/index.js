@@ -68,7 +68,7 @@ map.on('load', function () {
   });
 
   // Starting filter for the graph:
-  map.setFilter('Occ01_Shenzhen_10202013', ['==', 'time', "00:00:00"]);
+  map.setFilter('Occ01_Shenzhen_10202013', ['==', 'time', "12:00:00"]);
 
   // Filter for every minute:
   document.getElementById('slider').addEventListener('input', function(e) {
