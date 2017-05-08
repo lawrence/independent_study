@@ -17,13 +17,37 @@
     <script src="index.js"></script>
   </div>
   <div id='console'>
+    <h2>mapbR: Cellphone Towers</h2>
+
     <div class="form-group">
-      <label for="sel1">Select list:</label>
-      <select class="form-control" id="sel1">
-        <option>seconds</option>
-        <option>minutes</option>
-      </select>
+      <input type="text" class="form-control" id="a_token" placeholder="Access Token">
     </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="map_id" placeholder="Map ID">
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="map_inst" placeholder="Map Instance">
+    </div>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control" id="time_value" placeholder="Time (int)">
+      </div>
+
+      <div class="form-group">
+        <select class="form-control" id="time_unit" placeholder="Time Unit">
+          <option>seconds</option>
+          <option>minutes</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+
   </div>
 
 </body>
