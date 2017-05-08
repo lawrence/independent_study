@@ -10,7 +10,7 @@ parser.add_argument('file', metavar='--f', help='file path.')
 
 args = parser.parse_args()
 
-# Importing the file:
+# Importing the file and creating a new _1NF.csv file:
 import csv
 csvwriter = csv.writer(open(args.file+"_1NF.csv",'w'),delimiter=",")
 
@@ -21,12 +21,12 @@ with open(args.file,'rb') as csvfile:
     for row in csvreader:
         countdown = len(row)
         placeholder = 4
-        
-        if len(row) > 4: 
-            while countdown > 3: 
+
+        if len(row) > 4:
+            while countdown > 3:
                 csvwriter.writerow([row[0],row[placeholder-3],row[placeholder-2],row[placeholder-1]])
-                
+
                 placeholder+=3
-                countdown-=3 
+                countdown-=3
         else:
             csvwriter.writerow(row)
