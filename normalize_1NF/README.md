@@ -1,14 +1,14 @@
 # original_1NF.py
 
-I/O:
-Input:
- - In the terminal: python original_1NF.py your_file_name.csv
+### I/O:
+#### Input:
+ - In the terminal: `python original_1NF.py your_file_name.csv`
  - Takes a CSV file formatted where one id lists all of its contents on one line, instead of separate lines (not in first normal form)
 
-Output:
+#### Output:
  - In the same directory, places a csv file with each ids contents all separated out into different rows.
 
-Summary:
+### Summary:
 This is a quick script I used to put a csv file in 1NF for better usability, albeit the csv of course became bigger...
 
 For example the way this works is that if you csv rows were something like this:
