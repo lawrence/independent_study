@@ -13,14 +13,15 @@ This is a tool to quickly input some given parameters from MapBox and then print
 To use these tools with your own dataset, look in the index.js file and edit the following:
 
 ```javascript
-mapboxgl.accessToken = 'pk.eyJ1IjoiMTJwYXJrbCIsImEiOiJjaXllemhvYmEwMHF3MzVrNTA5djg0NnJsIn0.5pHqYmljwlmbl9_w-KDGxg';
+mapboxgl.accessToken = EDIT_ME_HERE;
 ```
+
 ```javascript
 map.on('load', function () {
     ...
-      url: 'mapbox://12parkl.dqcphg2q'
+      url: 'mapbox://EDIT_ME_HERE'
     },
-    'source-layer': 'Shenzhen_occ01_10202013-18o4sb',
+    'source-layer': 'EDIT_ME_HERE',
     'paint': {
 ```
 
