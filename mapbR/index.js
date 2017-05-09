@@ -1,4 +1,23 @@
+
+function getVariables() {
+}
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiMTJwYXJrbCIsImEiOiJjaXllemhvYmEwMHF3MzVrNTA5djg0NnJsIn0.5pHqYmljwlmbl9_w-KDGxg';
+
+//var atok = document.getElementById("a_token").value; //getForm.a_token;
+//console.log(atok);
+//
+
+var str,
+element = document.getElementById("a_token");
+if (element != null) {
+    str = element.value;
+    console.log(str);
+}
+else {
+    console.log("NOT HERE");
+}
+
 
 var map = new mapboxgl.Map({
   container: 'map',
@@ -20,27 +39,15 @@ var colorList = [
   [10, '#E48062']
 ];
 
-function seconds2HMS(input_second) {
-    var sec_num = parseInt(input_second, 10);
-    var hours   = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    return hours+':'+minutes+':'+seconds;
-}
-
 map.on('load', function () {
   map.addLayer({
-    'id': 'Occ01_Shenzhen_10202013',
+    'id': 'Shenzhen_MapID',
     'type': 'circle',
     'source': {
       type: 'vector',
-      url: 'mapbox://12parkl.dqcphg2q'
+      url: map_url
     },
-    'source-layer': 'Shenzhen_occ01_10202013-18o4sb',
+    'source-layer': s_layer,
     'paint': {
       'circle-color': {
         property: 'occ_count',
@@ -68,19 +75,19 @@ map.on('load', function () {
   });
 
   // Starting filter for the graph:
-  map.setFilter('Occ01_Shenzhen_10202013', ['==', 'time', "12:00:00"]);
+  map.setFilter('Shenzhen_MapID', ['==', 'time', "12:00:00"]);
 
   // Filter for every minute:
   document.getElementById('slider').addEventListener('input', function(e) {
     var val = parseFloat(e.target.value);
     var cHMS = seconds2HMS(val)
 
-    map.setFilter('Occ01_Shenzhen_10202013', ['==', 'time', cHMS]);
+    map.setFilter('Shenzhen_MapID', ['==', 'time', cHMS]);
     document.getElementById('active-time').innerText = cHMS;
   });
 
   map.on('click', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ01_Shenzhen_10202013'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Shenzhen_MapID'] });
 
     if (!features.length) {
       return;
@@ -97,7 +104,7 @@ map.on('load', function () {
   });
 
   map.on('mousemove', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['Occ01_Shenzhen_10202013'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Shenzhen_MapID'] });
     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
   });
 

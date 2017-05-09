@@ -1,7 +1,10 @@
 # Various Scripts
+These were the assorted small scripts I used during my independent study.
+- original_1NF: Went through a csv and normalized it in first normal form. The
+- total_occ.py: Made each row into a string (cut the user_id to generalize the data) and count the occurrence by the time and location.
+- reduce.py: Went through the rows to delete some extra characters.
 
 ## original_1NF.py
-
 ### I/O:
 #### Input:
  - In the terminal: `python original_1NF.py your_file_name.csv`
@@ -28,3 +31,12 @@ The script would break the rows into a new csv file (csv-filename_1NF.csv) in th
     and then goes to the next row, until the end of the csv
 
 This py script right now only takes this specific example (well at least the number of repeated columns as seen in the array on every row). In the future, I'll make the script to be more universal!
+
+## total_occ.py
+### I/O:
+#### Input:
+ - In the terminal: `python total_occ.py your_file_name.csv`
+ - Takes a CSV file and stringify all the rows, place inserts it into a python list, and uses the Python count object to count all the occurrences for each string and places it into a csv.
+
+#### Output:
+ - In the same directory, places a csv file with all the occurrences counted up.

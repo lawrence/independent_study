@@ -27,6 +27,11 @@ a {
   color: #2dc4b2;
 }
 
+#form {
+  padding: 10px;
+  bottom: 10px;
+}
+
 #console {
   position: absolute;
   width: 400px;
