@@ -2,7 +2,7 @@
 Just some code samples I used during my independent study at Rutgers University.
 
 ## mapbR
-Under construction at the moment.
+Online @ https://mapbr.lare.me !
 
 This is a tool to quickly input some given parameters from MapBox and then print out the map in HTML very quickly. This is the 'generalization' of ease tool for the Occ_HTML tool series.
 
