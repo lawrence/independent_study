@@ -34,7 +34,7 @@ function seconds2HMS(input_second) {
 
 map.on('load', function () {
   map.addLayer({
-    'id': 'Occ01_Shenzhen_10202013',
+    'id': 'Occ01_Shenzhen_102020132',
     'type': 'circle',
     'source': {
       type: 'vector',
