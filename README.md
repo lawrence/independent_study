@@ -26,10 +26,10 @@ map.on('load', function () {
 ```
 
 ## Various Scripts
-~~These were the assorted small scripts I used during my independent study.
-- original_1NF: Went through a csv and normalized it in first normal form.
-- total_occ.py: Made each row into a string (cut the user_id to generalize the data) and count the occurrence by the time and location.
-- reduce.py: Went through the rows to delete some extra characters.~~
+~~These were the assorted small scripts I used during my independent study.~~
+~~- original_1NF: Went through a csv and normalized it in first normal form.~~
+~~- total_occ.py: Made each row into a string (cut the user_id to generalize the data) and count the occurrence by the time and location.~~
+~~- reduce.py: Went through the rows to delete some extra characters.~~
 
 Noticed that there was something wrong with some of the scripts. I updated them accordingly.
 - changeDelim.py: Used to change the delim from _ to ,

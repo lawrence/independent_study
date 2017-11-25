@@ -35,7 +35,7 @@ This py script right now only takes this specific example (well at least the num
 ## ~~total_occ.py~~ occ.py
 ### I/O:
 #### Input:
- - Do not use total_occ.py please.
+ - **Do not use total_occ.py please.** total_occ.py does NOT work.
  - In the terminal: `python total_occ.py your_file_name.csv`
  - Takes a CSV file and stringify all the rows, place inserts it into a python list, and uses the Python count object to count all the occurrences for each string and places it into a csv.
 
