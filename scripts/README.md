@@ -32,11 +32,15 @@ The script would break the rows into a new csv file (csv-filename_1NF.csv) in th
 
 This py script right now only takes this specific example (well at least the number of repeated columns as seen in the array on every row). In the future, I'll make the script to be more universal!
 
-## total_occ.py
+## ~~total_occ.py~~ occ.py
 ### I/O:
 #### Input:
+ - Do not use total_occ.py please.
  - In the terminal: `python total_occ.py your_file_name.csv`
  - Takes a CSV file and stringify all the rows, place inserts it into a python list, and uses the Python count object to count all the occurrences for each string and places it into a csv.
 
 #### Output:
  - In the same directory, places a csv file with all the occurrences counted up.
+
+# Other Scripts.
+All other scripts were janky quick scripts I left in that I later found. Use them if needed! 

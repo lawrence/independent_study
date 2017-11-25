@@ -1,8 +1,3 @@
-
-##
-## DO NOT USE. Does not work! Left here to be investegated later.
-##
-
 import datetime
 from collections import Counter
 
@@ -25,16 +20,13 @@ with open(args.file,'rb') as csvfile:
 
     # Actual code:
     for row in csvreader:
+        list_ent = row[0]+','+row[1]+','+row[2]
+        if "__" in list_ent:
+            continue
+        print list_ent
 
-        if row.length > 1:
-        # Stringify the whole row to count the occ:
-            for row[i] in row.length:
-                list_ent += row[i]
+        mylist.append(list_ent)
 
-        # Use append! Append is O(1) while insert is O(n)...
-		mylist.append(list_ent)
-
-    # Using the counter object and writing into a new csv:
     cc = Counter(mylist)
     for key, value in cc.items():
        csvwriter.writerow([key, value])

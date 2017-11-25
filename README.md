@@ -2,7 +2,7 @@
 Just some code samples I used during my independent study at Rutgers University.
 
 ## mapbR
-Online @ http://mapbr.lare.me !
+Under construction at the moment.
 
 This is a tool to quickly input some given parameters from MapBox and then print out the map in HTML very quickly. This is the 'generalization' of ease tool for the Occ_HTML tool series.
 
@@ -26,7 +26,13 @@ map.on('load', function () {
 ```
 
 ## Various Scripts
-These were the assorted small scripts I used during my independent study.
+~~These were the assorted small scripts I used during my independent study.
 - original_1NF: Went through a csv and normalized it in first normal form.
 - total_occ.py: Made each row into a string (cut the user_id to generalize the data) and count the occurrence by the time and location.
-- reduce.py: Went through the rows to delete some extra characters.
+- reduce.py: Went through the rows to delete some extra characters.~~
+
+Noticed that there was something wrong with some of the scripts. I updated them accordingly.
+- changeDelim.py: Used to change the delim from _ to ,
+- occ.py: used to group up all same string rows and count up the occurence
+- reduce.py: used to take out some repeating strings to cut space
+- total_occ.py: Don't use, does not work. Kept it to investegate what the hell I was doing... use occ.py please.
